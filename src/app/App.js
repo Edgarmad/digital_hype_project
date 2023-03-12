@@ -18,7 +18,12 @@ class App extends Component {
                  'Accept': 'application/json',
                  'Content-Type': 'application/json'
             }
-        }).then(res=>console.log(res)).catch(err=>console.log(err));
+        }).then(res=>res.json())
+          .then(data=>{
+            console.log(data);
+            this.setState({code: ''})
+          })
+          .catch(err=>console.log(err));
         e.preventDefault();
     }
     handdle(e){
@@ -43,7 +48,7 @@ class App extends Component {
                                     <form onSubmit={this.decodingCode}>
                                         <div className="row">
                                             <div className="input-field col s12">
-                                                <input type='text' placeholder="texto" name="code" onChange={this.handdle}>
+                                                <input type='text' placeholder="texto" name="code" onChange={this.handdle} value={this.state.code}>
                                                 </input>
                                             </div>
                                         </div>
