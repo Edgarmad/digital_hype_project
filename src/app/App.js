@@ -4,13 +4,17 @@ class App extends Component {
     constructor(){
         super();
         this.state = {
-            code:''
+            code:'',
+            decode:{
+                first_name:'',
+                last_name:'',
+                id:''
+            }
         };
         this.decodingCode = this.decodingCode.bind(this);
         this.handdle = this.handdle.bind(this);
     }
     decodingCode(e){
-        console.log(this.state);
         fetch('/api/task/decode',{
             method: 'POST',
             body: JSON.stringify(this.state),
@@ -20,8 +24,8 @@ class App extends Component {
             }
         }).then(res=>res.json())
           .then(data=>{
-            console.log(data);
-            this.setState({code: ''})
+            this.setState({code: '',decode:data})
+            console.log(this.state.decode);
           })
           .catch(err=>console.log(err));
         e.preventDefault();
@@ -34,7 +38,7 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{ position: "relative", minHeight: "100vh" }}>
                 <nav className="light-blue darken-4">
                     <div className="container">
                         <a className="brand-logo" href="/">Gund Arm</a>
@@ -42,7 +46,7 @@ class App extends Component {
                 </nav>
                 <div className="container">
                     <div className="row">
-                        <div className="col-6">
+                        <div className="col 6">
                             <div className="card">
                                 <div className="card-content">
                                     <form onSubmit={this.decodingCode}>
@@ -59,11 +63,24 @@ class App extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-6">
-                            
+                        <div className="col 6">
+                            <div className="col 6">
+                                {this.state.decode.first_name}
+                                {this.state.decode.last_name}
+                                {this.state.decode.id}
+                            </div>
                         </div>
                     </div>
                 </div>
+                <footer style={{ position: "fixed", bottom: "0", width: "100%" }} class="page-footer">
+                    <div class="footer-copyright">
+                        <div class="container">
+                            Luis Edgar Madrigal Munguia
+                            <a class="grey-text text-lighten-4 right" href="https://github.com/Edgarmad" target="_blank">GitHub</a>
+                            <a class="grey-text text-lighten-4 right" href="https://www.linkedin.com/in/luis-madrigal1396/" target="_blank">LinkedIn &nbsp;</a>
+                        </div>
+                    </div>
+                </footer>
             </div>
         )
     }
