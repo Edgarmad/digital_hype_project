@@ -39,9 +39,9 @@ class App extends Component {
     render() {
         return (
             <div style={{ position: "relative", minHeight: "100vh" }}>
-                <nav className="light-blue darken-4">
+                <nav className="indigo darken-1">
                     <div className="container">
-                        <a className="brand-logo" href="/">Gund Arm</a>
+                        <a className="brand-logo" href="/">Uncoding the code</a>
                     </div>
                 </nav>
                 <div className="container">
@@ -63,21 +63,21 @@ class App extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col 6">
-                            <div className="col 6">
-                                {this.state.decode.first_name}
-                                {this.state.decode.last_name}
-                                {this.state.decode.id}
+                        <div className="col-6">
+                            <div className="col-6">
+                                <h5> Nombre: {this.state.decode.first_name}</h5>
+                                <h5> Apellido: {this.state.decode.last_name}</h5>
+                                <h5> ID: {this.state.decode.id}</h5>
                             </div>
                         </div>
                     </div>
                 </div>
-                <footer style={{ position: "fixed", bottom: "0", width: "100%" }} class="page-footer">
-                    <div class="footer-copyright">
-                        <div class="container">
+                <footer style={{ position: "fixed", bottom: "0", width: "100%" }} className="page-footer indigo lighten-2">
+                    <div className="footer-copyright  indigo darken-4">
+                        <div className="container">
                             Luis Edgar Madrigal Munguia
-                            <a class="grey-text text-lighten-4 right" href="https://github.com/Edgarmad" target="_blank">GitHub</a>
-                            <a class="grey-text text-lighten-4 right" href="https://www.linkedin.com/in/luis-madrigal1396/" target="_blank">LinkedIn &nbsp;</a>
+                            <a className="white-text text-lighten-4 right" href="https://github.com/Edgarmad" target="_blank">GitHub</a>
+                            <a className="white-text text-lighten-4 right" href="https://www.linkedin.com/in/luis-madrigal1396/" target="_blank">LinkedIn &nbsp;</a>
                         </div>
                     </div>
                 </footer>
