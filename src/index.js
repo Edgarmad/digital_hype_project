@@ -12,6 +12,4 @@ app.use(express.json());
 app.use('/api/task',require('./routes/routes.js'));
 //Static files
 app.use(express.static(path.join(__dirname,'public')));
-app.listen(app.get('port'),()=>{
-    console.log('test 1')
-});
+app.listen(app.get('port'),()=>{});
