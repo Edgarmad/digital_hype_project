@@ -24,8 +24,12 @@ class App extends Component {
             }
         }).then(res=>res.json())
           .then(data=>{
-            this.setState({code: '',decode:data})
-            console.log(this.state.decode);
+            console.log(data)
+            if(data.status == 400){
+                M.toast({html: 'Formato invalido'})
+            }else{
+                this.setState({code: '',decode:data})
+            }
           })
           .catch(err=>console.log(err));
         e.preventDefault();
